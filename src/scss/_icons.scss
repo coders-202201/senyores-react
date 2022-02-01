@@ -1,0 +1,17 @@
+.icon {
+  &.gentleman__icon {
+    background-color: $background-small-items;
+    border-radius: 50%;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    @extend .flex-container-center-main;
+    @extend .flex-container-center-cross;
+  }
+  &.gentleman__icon--delete {
+    top: 20px;
+    background-color: #600;
+    display: inline-flex;
+    cursor: pointer;
+  }
+}

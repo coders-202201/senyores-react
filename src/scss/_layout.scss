@@ -1,0 +1,21 @@
+@use "./flex-utils";
+
+.container {
+  background-color: $background-main-color;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.main-header {
+  text-align: center;
+}
+.main-title {
+  font-weight: 500;
+}
+.controls {
+  @extend .flex-container-column;
+  @extend .flex-container-center-cross;
+}
+.main {
+  padding-top: 20px;
+}
