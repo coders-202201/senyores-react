@@ -4,10 +4,16 @@ import "@fontsource/open-sans";
 import "./scss/styles.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import GentlemenContextProvider from "./contexts/GentlemenContextProvider";
+import ThemeContextProvider from "./contexts/ThemeContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeContextProvider>
+      <GentlemenContextProvider>
+        <App />
+      </GentlemenContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
