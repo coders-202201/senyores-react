@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useReducer } from "react";
+import gentlemenReducer from "../reducers/gentlemenReducer";
 import GentlemenContext from "./GentlemenContext";
 
 const gentlemenAPI = [
@@ -35,37 +36,7 @@ const gentlemenAPI = [
 ];
 
 const GentlemenContextProvider = ({ children }) => {
-  const [gentlemen, setGentlemen] = useState(gentlemenAPI);
-
-  const toggleSelected = (gentlemanId) => {
-    setGentlemen(
-      gentlemen.map((gentleman) => {
-        if (gentleman.id === gentlemanId) {
-          return {
-            ...gentleman,
-            selected: !gentleman.selected,
-          };
-        }
-        return { ...gentleman };
-      })
-    );
-  };
-
-  const selectAll = () => {
-    setGentlemen(
-      gentlemen.map((gentleman) => ({
-        ...gentleman,
-        selected: true,
-      }))
-    );
-  };
-
-  const deleteGentleman = (gentlemanId) => {
-    const undestructibleBertin = gentlemen.filter(
-      (gentleman) => gentleman.id !== gentlemanId
-    );
-    setGentlemen(undestructibleBertin);
-  };
+  const [gentlemen, dispatch] = useReducer(gentlemenReducer, gentlemenAPI);
 
   const totalSelected = gentlemen.filter(
     (gentleman) => gentleman.selected
@@ -76,9 +47,7 @@ const GentlemenContextProvider = ({ children }) => {
       value={{
         gentlemen,
         totalSelected,
-        deleteGentleman,
-        toggleSelected,
-        selectAll,
+        dispatch,
       }}
     >
       {children}

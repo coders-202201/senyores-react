@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import GentlemenContext from "../../contexts/GentlemenContext";
+import GentlemenContext from "../../store/contexts/GentlemenContext";
 import ThemeContext from "../../contexts/ThemeContext";
 
 const Info = () => {
