@@ -35,7 +35,7 @@ const Gentleman = ({
       <div className="gentleman__avatar-container">
         <img
           className="gentleman__avatar"
-          src={`img/${picture}`}
+          src={`${picture.startsWith("http") ? picture : `img/${picture}`}`}
           alt={alternativeText}
         />
         <span className="gentleman__initial">{getInitial()}</span>

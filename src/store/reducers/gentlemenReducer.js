@@ -7,6 +7,9 @@ const gentlemenReducer = (currentGentlemen, action) => {
     case actionsTypes.loadGentlemen:
       newGentlemen = [...action.gentlemen];
       break;
+    case actionsTypes.addGentleman:
+      newGentlemen = [...currentGentlemen, action.gentleman];
+      break;
     case actionsTypes.deleteGentleman:
       newGentlemen = currentGentlemen.filter(
         (gentleman) => gentleman.id !== action.id

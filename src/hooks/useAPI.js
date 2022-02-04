@@ -6,6 +6,7 @@ import {
   unsetLoadingAction,
 } from "../store/actions/api/actionsCreators";
 import {
+  addGentlemanAction,
   deleteGentlemanAction,
   loadGentlemenAction,
 } from "../store/actions/gentlemen/actionsCreators";
@@ -30,6 +31,25 @@ const useAPI = () => {
     dispatchAPI(unsetLoadingAction());
   }, [apiURL, dispatch, dispatchAPI]);
 
+  const addGentlemanAPI = async (gentleman) => {
+    try {
+      dispatchAPI(setLoadingAction());
+      dispatchAPI(unsetErrorAction());
+      const response = await fetch(apiURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(gentleman),
+      });
+      const newGentleman = await response.json();
+      dispatch(addGentlemanAction(newGentleman));
+    } catch (error) {
+      dispatchAPI(setErrorAction());
+    }
+    dispatchAPI(unsetLoadingAction());
+  };
+
   const deleteGentlemanAPI = async (id) => {
     dispatchAPI(setLoadingAction());
     try {
@@ -50,6 +70,7 @@ const useAPI = () => {
 
   return {
     loadGentlemenAPI,
+    addGentlemanAPI,
     deleteGentlemanAPI,
   };
 };

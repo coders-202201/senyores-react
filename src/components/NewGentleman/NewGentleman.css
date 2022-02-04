@@ -1,0 +1,14 @@
+.new-gentlemen {
+  width: 400px;
+  margin: 0 auto;
+}
+.new-gentlemen label {
+  width: 130px;
+  display: inline-block;
+}
+.new-gentlemen .form-group {
+  margin-bottom: 10px;
+}
+.new-gentlemen .form-input {
+  width: calc(100% - 130px);
+}

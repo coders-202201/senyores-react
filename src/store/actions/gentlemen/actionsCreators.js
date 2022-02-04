@@ -5,6 +5,11 @@ export const loadGentlemenAction = (gentlemen) => ({
   gentlemen,
 });
 
+export const addGentlemanAction = (gentleman) => ({
+  type: actionsTypes.addGentleman,
+  gentleman,
+});
+
 export const deleteGentlemanAction = (id) => ({
   type: actionsTypes.deleteGentleman,
   id,

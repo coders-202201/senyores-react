@@ -4,6 +4,7 @@ import Error from "./components/Error/Error";
 import GentlemenList from "./components/GentlemenList/GentlemenList";
 import Info from "./components/Info/Info";
 import Loading from "./components/Loading/Loading";
+import NewGentleman from "./components/NewGentleman/NewGentleman";
 import useAPI from "./hooks/useAPI";
 import ThemeContext from "./store/contexts/ThemeContext";
 
@@ -27,6 +28,7 @@ function App() {
         <Button />
       </section>
       <main className="main">
+        <NewGentleman />
         <GentlemenList />
       </main>
     </div>
