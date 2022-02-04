@@ -1,4 +1,4 @@
-import actionsTypes from "../actions/actionsTypes";
+import actionsTypes from "../actions/gentlemen/actionsTypes";
 import gentlemenReducer from "./gentlemenReducer";
 
 describe("Given a gentlemenReducer function", () => {

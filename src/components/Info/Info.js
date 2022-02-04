@@ -1,15 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { toggleThemeAction } from "../../store/actions/theme/actionsCreators";
 import GentlemenContext from "../../store/contexts/GentlemenContext";
-import ThemeContext from "../../contexts/ThemeContext";
+import ThemeContext from "../../store/contexts/ThemeContext";
 
 const Info = () => {
   const { totalSelected } = useContext(GentlemenContext);
-  const { toggleTheme } = useContext(ThemeContext);
+  const { theme, dispatch } = useContext(ThemeContext);
 
   const actionOnClick = (event) => {
     event.preventDefault();
-    toggleTheme();
+    dispatch(toggleThemeAction());
   };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <>

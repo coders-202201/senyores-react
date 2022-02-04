@@ -1,5 +1,10 @@
 import actionsTypes from "./actionsTypes";
 
+export const loadGentlemenAction = (gentlemen) => ({
+  type: actionsTypes.loadGentlemen,
+  gentlemen,
+});
+
 export const deleteGentlemanAction = (id) => ({
   type: actionsTypes.deleteGentleman,
   id,

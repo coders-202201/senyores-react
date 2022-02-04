@@ -1,20 +1,15 @@
 import { useContext } from "react";
-import {
-  deleteGentlemanAction,
-  toggleGentlemanAction,
-} from "../../store/actions/actionsCreators";
+import useAPI from "../../hooks/useAPI";
+import { toggleGentlemanAction } from "../../store/actions/gentlemen/actionsCreators";
 import GentlemenContext from "../../store/contexts/GentlemenContext";
 import Gentleman from "../Gentleman/Gentleman";
 
 const GentlemenList = () => {
   const { gentlemen, dispatch } = useContext(GentlemenContext);
+  const { deleteGentlemanAPI } = useAPI();
 
   const toggleSelected = (id) => {
     dispatch(toggleGentlemanAction(id));
-  };
-
-  const deleteGentleman = (id) => {
-    dispatch(deleteGentlemanAction(id));
   };
 
   return (
@@ -24,7 +19,7 @@ const GentlemenList = () => {
           key={gentleman.id}
           gentleman={gentleman}
           actionOnClick={() => toggleSelected(gentleman.id)}
-          actionOnRemove={() => deleteGentleman(gentleman.id)}
+          actionOnRemove={() => deleteGentlemanAPI(gentleman.id)}
         />
       ))}
     </ul>

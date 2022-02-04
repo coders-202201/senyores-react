@@ -5,14 +5,17 @@ import "./scss/styles.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import GentlemenContextProvider from "./store/contexts/GentlemenContextProvider";
-import ThemeContextProvider from "./contexts/ThemeContextProvider";
+import ThemeContextProvider from "./store/contexts/ThemeContextProvider";
+import APIContextProvider from "./store/contexts/APIContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeContextProvider>
-      <GentlemenContextProvider>
-        <App />
-      </GentlemenContextProvider>
+      <APIContextProvider>
+        <GentlemenContextProvider>
+          <App />
+        </GentlemenContextProvider>
+      </APIContextProvider>
     </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")

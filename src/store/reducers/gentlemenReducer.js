@@ -1,9 +1,12 @@
-import actionsTypes from "../actions/actionsTypes";
+import actionsTypes from "../actions/gentlemen/actionsTypes";
 
 const gentlemenReducer = (currentGentlemen, action) => {
   let newGentlemen;
 
   switch (action.type) {
+    case actionsTypes.loadGentlemen:
+      newGentlemen = [...action.gentlemen];
+      break;
     case actionsTypes.deleteGentleman:
       newGentlemen = currentGentlemen.filter(
         (gentleman) => gentleman.id !== action.id
